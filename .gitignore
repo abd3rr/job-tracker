@@ -1,0 +1,16 @@
+# --- IDEs ---
+.idea/
+.vscode/
+*.iml
+out/
+
+# --- Maven / Build ---
+target/
+**/target/
+
+# --- Logs ---
+*.log
+
+# --- OS files ---
+.DS_Store
+Thumbs.db

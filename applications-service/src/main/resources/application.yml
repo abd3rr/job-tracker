@@ -1,0 +1,12 @@
+server:
+  port: 8081
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/applications_db #! for dev only use proper secrets in prod
+    username: applications_user
+    password: applications_pass
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
