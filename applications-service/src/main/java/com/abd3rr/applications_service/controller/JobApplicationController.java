@@ -19,6 +19,12 @@ public class JobApplicationController {
         this.service = service;
     }
 
+    @GetMapping("/{id}")
+    public JobApplicationResponse getById(@PathVariable Long id) {
+        return service.findById(id);
+    }
+
+
     @GetMapping
     public List<JobApplicationResponse> getAll(
             @RequestParam(value = "status", required = false) ApplicationStatus status
