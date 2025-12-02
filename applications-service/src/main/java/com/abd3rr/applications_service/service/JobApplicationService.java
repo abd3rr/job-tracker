@@ -44,5 +44,22 @@ public class JobApplicationService {
         return JobApplicationMapper.toResponse(saved);
     }
 
+    public JobApplicationResponse update(Long id,  JobApplicationRequest request) {
+        JobApplication entity = jobApplicationRepository.findById(id)
+                .orElseThrow(() -> new JobApplicationNotFoundException(id));
+
+        JobApplicationMapper.updateEntity(entity, request);
+        JobApplication saved = jobApplicationRepository.save(entity);
+
+        return JobApplicationMapper.toResponse(saved);
+    }
+
+    public void delete(Long id) {
+        if (!jobApplicationRepository.existsById(id))
+            throw new JobApplicationNotFoundException(id);
+
+        jobApplicationRepository.deleteById(id);
+    }
+
 
 }
